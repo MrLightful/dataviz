@@ -24,10 +24,10 @@ curl -X POST http://localhost:3000/ingest/url -H "Content-Type: application/json
 
 ## Get Taxonomy by API (optional)
 
-The backend provides an endpoint at `/tree` that can be used to get taxonomy 1 level at a time at path.
+The backend provides an endpoint at `/path?query=<path>` that can be used to get taxonomy 1 level at a time at path.
 
 ```bash
-curl "http://localhost:3000/tree?path=ImageNet%202011%20Fall%20Release"
+curl "http://localhost:3000/path?query=ImageNet%202011%20Fall%20Release"
 ```
 
 This will return an array of taxonomy elements at the path `ImageNet 2011 Fall Release`.

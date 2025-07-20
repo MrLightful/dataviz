@@ -6,7 +6,7 @@ import { and, like, notLike } from 'drizzle-orm';
 @Injectable()
 export class AppService {
   constructor(private readonly databaseService: DatabaseService) {}
-  getTree(path?: string): Promise<Taxonomy[]> {
+  getPath(path?: string): Promise<Taxonomy[]> {
     return this.databaseService.db
       .select()
       .from(taxonomyDb)

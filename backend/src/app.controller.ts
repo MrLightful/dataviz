@@ -5,8 +5,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('tree')
-  getTree(@Query('path') path?: string) {
-    return this.appService.getTree(path);
+  @Get('path')
+  getPath(@Query('query') query?: string) {
+    return this.appService.getPath(query);
   }
 }

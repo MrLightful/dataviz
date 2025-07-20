@@ -15,7 +15,7 @@ export function getTaxonomy(path?: string): Promise<Taxonomy[]> {
     ? 'http://backend:3000' // Server-side (inside Docker)
     : 'http://localhost:3000'; // Client-side (browser)
   
-  return fetch(`${baseUrl}/tree${path ? `?path=${path}` : ''}`).then(
+  return fetch(`${baseUrl}/path${path ? `?query=${path}` : ''}`).then(
     (res) => res.json(),
   );
 }
