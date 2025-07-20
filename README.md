@@ -2,6 +2,8 @@
 
 The repository contains a NestJS backend and a React (react-router framework) frontend.
 
+![Demo](demo.png)
+
 ## Getting Started
 
 Run the applications using docker compose:
