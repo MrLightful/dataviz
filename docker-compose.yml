@@ -1,0 +1,14 @@
+name: dataviz
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_FILE_NAME=file:local.db
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - PORT=5173
