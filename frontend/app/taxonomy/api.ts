@@ -11,7 +11,7 @@ export type Taxonomy = {
  */
 export function getTaxonomy(path?: string): Promise<Taxonomy[]> {
   // Determine if we're running on the server or client
-  const baseUrl = typeof window === 'undefined' 
+  const baseUrl = typeof window === 'undefined' && process.env.NODE_ENV === 'production'
     ? 'http://backend:3000' // Server-side (inside Docker)
     : 'http://localhost:3000'; // Client-side (browser)
   
