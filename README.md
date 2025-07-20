@@ -64,3 +64,34 @@ Fun fact: I'm using my own tree view component for this: [MrLightful/shadcn-tree
 
 This renders a search bar that allows you to search for taxonomy elements.
 Only shows matches in the last level of the taxonomy.
+
+# Notes
+
+Technical:
+
+- Both backend and frontend are Typescript.
+- Nestjs backend.
+- Drizzle ORM.
+- SQLite database.
+- React (react-router framework) frontend.
+- TailwindCSS + Shadcn UI.
+- Dockerized for easy review.
+
+What's good:
+
+- The tree view is lazy loading children on demand.
+- The search bar is debounced to prevent too many requests.
+- The search bar only shows matches in the last level of the taxonomy.
+- Ingestion is batched, so not to overload the database.
+- Ingestion is done async, so http response is immediate & not timing out.
+
+What's bad:
+
+- UI/UX is minimal to just serve the purpose.
+- Lazy loading of children is a bit janky, could be rendered nicer (e.g. with a loading spinner).
+- The frontend app is using simple state hooks (more production-ready app would be using context-provided state and zustand/redux/other state management library).
+- Duplication of data is not handled properly (e.g. if you ingest the same url multiple times).
+- Proper error handling is not implemented.
+- Tree building Big O could be improved (e.g. branching factor to O(1) by creating a lookup map).
+- Search result pagination is not implemented.
+- Tree view not perfomant if 1 level contains too many elements; lazy loading within 1 level might be needed.
