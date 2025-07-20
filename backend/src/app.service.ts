@@ -1,11 +1,10 @@
+import { DatabaseService } from '@app/db';
 import { Injectable } from '@nestjs/common';
+import { Taxonomy, taxonomyDb } from './app.entity';
+import { and, like, notLike } from 'drizzle-orm';
 
 @Injectable()
 export class AppService {
-<<<<<<< Updated upstream
-  getHello(): string {
-    return 'Hello World!';
-=======
   constructor(private readonly databaseService: DatabaseService) {}
   getTree(path?: string): Promise<Taxonomy[]> {
     return this.databaseService.db
@@ -20,6 +19,5 @@ export class AppService {
             )
           : notLike(taxonomyDb.name, '% > %'),
       );
->>>>>>> Stashed changes
   }
 }
