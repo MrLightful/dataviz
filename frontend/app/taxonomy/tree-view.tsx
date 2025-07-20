@@ -75,7 +75,10 @@ export default function Taxonomy({ loaderData, className }: { loaderData: Taxono
 
   return (
     <div className={className}>
-      <h1>Items in memory: {totalItemCount}</h1>
+      <div>
+          <h2 className="text-xl font-bold mb-2">Taxonomy Tree</h2>
+          <p className="text-sm text-muted-foreground">Items in memory: {totalItemCount}</p>
+        </div>
       <TreeView data={items} onSelectChange={handleSelectChange} />
     </div>
   );
