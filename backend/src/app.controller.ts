@@ -14,4 +14,9 @@ export class AppController {
   getTree(@Query('depth') depth?: number) {
     return this.appService.getTree(depth);
   }
+
+  @Get('search')
+  getSearch(@Query('query') query: string) {
+    return this.appService.getSearch(query);
+  }
 }

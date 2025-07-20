@@ -2,7 +2,7 @@ import { TreeView, type TreeDataItem } from '~/components/tree-view';
 import { getTaxonomy, type Taxonomy } from './api';
 import { useState, useMemo } from 'react';
 
-export default function Taxonomy({ loaderData }: { loaderData: Taxonomy[] }) {
+export default function Taxonomy({ loaderData, className }: { loaderData: Taxonomy[]; className?: string }) {
   // Store the loaded items in a map.
   const [loadedItems, setLoadedItems] = useState<Map<string, Taxonomy[]>>(
     new Map<string, Taxonomy[]>([['root', loaderData]]),
@@ -74,9 +74,9 @@ export default function Taxonomy({ loaderData }: { loaderData: Taxonomy[] }) {
   };
 
   return (
-    <>
+    <div className={className}>
       <h1>Items in memory: {totalItemCount}</h1>
       <TreeView data={items} onSelectChange={handleSelectChange} />
-    </>
+    </div>
   );
 }

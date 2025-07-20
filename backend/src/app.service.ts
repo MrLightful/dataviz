@@ -79,4 +79,16 @@ export class AppService {
 
     return root.children.length === 1 ? root.children[0] : root;
   }
+
+  getSearch(query: string) {
+    return this.databaseService.db
+      .select()
+      .from(taxonomyDb)
+      .where(
+        and(
+          like(taxonomyDb.name, `%${query}%`),
+          notLike(taxonomyDb.name, `%${query}% > %`),
+        ),
+      );
+  }
 }

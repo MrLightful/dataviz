@@ -54,6 +54,13 @@ The Big O complexity of this endpoint is O(n _ d _ b), where:
 ## Frontend
 
 The frontend app is available at [http://localhost:5173](http://localhost:5173).
-This renders a tree of taxonomy, lazily loading children on demand.
 
+### Taxonomy Tree
+
+This renders a tree of taxonomy, lazily loading children on demand.
 Fun fact: I'm using my own tree view component for this: [MrLightful/shadcn-tree-view](https://github.com/MrLightful/shadcn-tree-view).
+
+### Taxonomy Search
+
+This renders a search bar that allows you to search for taxonomy elements.
+Only shows matches in the last level of the taxonomy.
