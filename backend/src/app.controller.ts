@@ -9,4 +9,9 @@ export class AppController {
   getPath(@Query('query') query?: string) {
     return this.appService.getPath(query);
   }
+
+  @Get('tree')
+  getTree(@Query('depth') depth?: number) {
+    return this.appService.getTree(depth);
+  }
 }
