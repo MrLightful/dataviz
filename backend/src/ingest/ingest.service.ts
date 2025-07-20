@@ -22,7 +22,6 @@ export class IngestService {
   }
 
   async ingestRaw(items: Taxonomy[]) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     await this.databaseService.db.insert(taxonomyDb).values(items);
   }
 }

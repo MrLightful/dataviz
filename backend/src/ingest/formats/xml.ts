@@ -55,13 +55,24 @@ const traverse = (
 };
 
 /**
+ * Parses the XML content and returns a promise of the parsed content.
+ * @param xml The XML content to parse.
+ * @returns A promise of the parsed content.
+ */
+function parseXmlSafe<T>(xml: string): Promise<T> {
+  return parseStringPromise(xml).then((result) => result as T);
+}
+
+/**
  * Parses the XML content and returns an array of taxonomy items.
  * @param content The XML content to parse.
  * @returns An array of taxonomy items.
  */
 export async function parseXml(content: string): Promise<OutputItem[]> {
-  const parsed = await parseStringPromise(content);
-  const rootSynset: SynsetNode = parsed.ImageNetStructure.synset?.[0];
+  const parsed = await parseXmlSafe<{
+    ImageNetStructure: { synset: SynsetNode[] };
+  }>(content);
+  const rootSynset: SynsetNode = parsed.ImageNetStructure.synset[0];
   const result: OutputItem[] = [];
   traverse(result, rootSynset, '');
   return result;

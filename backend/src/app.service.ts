@@ -12,8 +12,7 @@ export class AppService {
       .from(taxonomyDb)
       .where(
         path
-          ?
-            and(
+          ? and(
               like(taxonomyDb.name, `${path} > %`),
               notLike(taxonomyDb.name, `${path} > % > %`),
             )

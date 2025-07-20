@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseConfig } from './db.config';
-import { drizzle } from 'drizzle-orm/libsql';
+import { drizzle, LibSQLDatabase } from 'drizzle-orm/libsql';
 
-export type Database = ReturnType<typeof drizzle>;
+export type Database = LibSQLDatabase;
 
 @Injectable()
 export class DatabaseService {
