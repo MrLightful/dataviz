@@ -1,12 +1,19 @@
+import Taxonomy from "~/taxonomy";
 import type { Route } from "./+types/home";
+import { getTaxonomy, type Taxonomy as TaxonomyType } from "~/taxonomy/api";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Dataviz" },
+    { name: "description", content: "Welcome to Dataviz!" },
   ];
 }
 
-export default function Home() {
-  return <h1>Home</h1>;
+export async function loader() {
+  const data = await getTaxonomy();
+  return data;
+}
+
+export default function Home({ loaderData }: { loaderData: TaxonomyType[] }) {
+  return <Taxonomy loaderData={loaderData} />;
 }
