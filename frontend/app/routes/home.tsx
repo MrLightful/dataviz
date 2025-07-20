@@ -1,11 +1,11 @@
-import Taxonomy from "~/taxonomy";
-import type { Route } from "./+types/home";
-import { getTaxonomy, type Taxonomy as TaxonomyType } from "~/taxonomy/api";
+import Taxonomy from '~/taxonomy';
+import type { Route } from './+types/home';
+import { getTaxonomy, type Taxonomy as TaxonomyType } from '~/taxonomy/api';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dataviz" },
-    { name: "description", content: "Welcome to Dataviz!" },
+    { title: 'Dataviz' },
+    { name: 'description', content: 'Welcome to Dataviz!' },
   ];
 }
 

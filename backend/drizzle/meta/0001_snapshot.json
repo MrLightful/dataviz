@@ -32,9 +32,7 @@
       "indexes": {
         "idx_name": {
           "name": "idx_name",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": false
         }
       },

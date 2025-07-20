@@ -10,7 +10,7 @@ export type Taxonomy = {
  * @returns A promise of the taxonomy items.
  */
 export function getTaxonomy(path?: string): Promise<Taxonomy[]> {
-  return fetch(`http://localhost:3000/tree${path ? `?path=${path}` : ""}`).then(
+  return fetch(`http://localhost:3000/tree${path ? `?path=${path}` : ''}`).then(
     (res) => res.json(),
   );
 }
