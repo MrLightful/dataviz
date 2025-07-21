@@ -86,6 +86,7 @@ What's good:
 - The search bar only shows matches in the last level of the taxonomy.
 - Ingestion is batched, so not to overload the database.
 - Ingestion is done async, so http response is immediate & not timing out.
+- Taxonomy's linear name in database is indexed for faster search.
 
 What's bad:
 
@@ -97,3 +98,4 @@ What's bad:
 - Tree building Big O could be improved (e.g. branching factor to O(1) by creating a lookup map).
 - Search result pagination is not implemented.
 - Tree view not perfomant if 1 level contains too many elements; lazy loading within 1 level might be needed.
+- LRU cache could be a good choice to drop unused items from tree view memory.
